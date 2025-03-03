@@ -1,0 +1,1 @@
+CREATE SCHEMA fantoria_account;
