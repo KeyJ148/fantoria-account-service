@@ -53,20 +53,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 21
-
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-
-      - name: Set up Gradle
-        run: ./gradlew clean
-
       - name: Build docker image
-        run: ./gradlew dockerBuild
+        run: docker build -t "${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}" .
 
       - name: Get project name and version from Gradle
         id: get_image_name
