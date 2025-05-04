@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      image_name: ${{ steps.get_image_name.outputs.image_name }}
+      IMAGE_NAME0: ${{ steps.get_image_name.outputs.image_name }}
     steps:
       - uses: actions/checkout@v4
 
@@ -32,7 +32,7 @@ jobs:
         id: get_image_name
         run: |
           IMAGE_NAME=$(./gradlew -q dockerPrintImageName)
-          echo "::set-output name=image_name::$IMAGE_NAME"
+          echo "::set-output name=image_name::abc"
           echo "Image name is: $IMAGE_NAME"
 
   test:
@@ -69,7 +69,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build docker image
-        run: docker build -t "${{ vars.DOCKER_USERNAME }}/${{ needs.build.outputs.image_name }}" .
+        run: docker build -t "${{ vars.DOCKER_USERNAME }}/${{ needs.build.outputs.IMAGE_NAME0 }}" .
 
       - name: Push Docker image
-        run: docker push "${{ vars.DOCKER_USERNAME }}/${{ needs.build.outputs.image_name }}"
+        run: docker push "${{ vars.DOCKER_USERNAME }}/${{ needs.build.outputs.IMAGE_NAME0 }}"
