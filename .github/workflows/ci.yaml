@@ -71,7 +71,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build docker image
-        run: docker build -t "${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}" .
+        run: docker build -t "${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME" .
 
       - name: Push Docker image
-        run: docker push "${{ vars.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}"
+        run: docker push "${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME"
