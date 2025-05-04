@@ -33,6 +33,7 @@ jobs:
         run: |
           IMAGE_NAME=$(./gradlew -q dockerPrintImageName)
           echo "image_name=$IMAGE_NAME" >> $GITHUB_OUTPUT
+          echo "Image name is: $IMAGE_NAME"
 
   test:
     runs-on: ubuntu-latest
