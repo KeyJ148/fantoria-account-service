@@ -2,7 +2,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     java
-    id("org.springframework.boot") version "3.5.0"
+    id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.ryandens.javaagent-test") version "0.8.0"
 }
@@ -26,10 +26,9 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     // General libs
-    val springBootVersion = "3.5.0"
+    val springBootVersion = "3.5.3"
     val micrometerVersion = "1.15.0"
     val lombokVersion = "1.18.38"
     val testcontainersVersion = "1.21.1"
